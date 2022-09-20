@@ -3,25 +3,103 @@
 
 <head>
     <style>
+    body {
+       background: rgb(125, 198, 205);
+       color: rgb(181, 71, 255);
+       padding: 10px;
+       font-family: 'Courier New', Courier, monospace;
+   }
+   #all-contents {
+     max-width: 800px;
+       margin: auto;
+   }
 
+   /* navigation menu */
+   nav {
+       background: rgb(255, 128, 238);
+      margin-bottom: 20px;
+       display: flex;
+       padding: 10px;
+       border: 2px rgb(181, 71, 255);
+       border-radius: 25px;
+   }
+   h1 {
+       display: flex;
+       align-items: center;
+       color: white;
+       flex: 1;
+       margin: 0;
+   }
+   #nav-ul {
+       list-style-image: none;
+   }
+   .nav-li {
+       display: inline-block;
+       padding: 0 10px;
+   }
+   a {
+       text-decoration: none;
+       color: #fff;
+   }
+
+   /* main container area beneath menu */
+   main {
+       background: rgb(231, 219, 245);
+       display: flex;
+   }
+   .sidebar {
+       margin-right: 25px;
+       padding: 10px;
+   }
+   .sidebar-img {
+       width: 200px;
+   }
+   .content {
+       flex: 1;
+       padding: 15px;
+       
+   }
+   #interests {
+       border: 4px silver ridge;
+       padding: 8px;
+   }
+   h2, h3 {
+       margin: 0px;
+   }
     </style>
     <title>Aubrey's Wild ride</title>
 </head>
 
 <body>
-    <div>
+    <div id="all-contents">
         <nav>
-
+            <h1>Aubrey's Wild Ride</h1>
+            <ul id="nav-ul">
+                <li class="nav-li">
+                  <a href="index.html"> Home </a>
+                </li>
+                <li class="nav-li">
+                  <a href="portfolio.html"> Portfolio </a>
+                </li>
+            </ul>
         </nav>
         <main>
             <div>
-                <h2>Aubrey</h2>
+               <img src="theotor.jpg" alt="">
             </div>
 
 
-            <div>
-                <p>I attend Edna Karr High School</p>
-                <img>
+            <div class="content">
+                <h2>Aubrey Wilkinson</h2>
+                <p>I attend Edna Karr Highschool</p>
+                <div id="interests">
+                    <h3>Interests</h3>
+                    <ul>
+                        <li>Sonic the Hedgehog</li>
+                        <li>Sea of Thieves</li>
+                        <li>Apex Legends</li>
+                    </ul>
+                </div>
             </div>
         </main>
     </div>
