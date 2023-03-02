@@ -79,8 +79,8 @@ function handleGood(color, shape, repeat){
 
  // TODO 4-b: call your handleGood function
   function goodDisplay() {
-   var currentShape = dataShapes
-   handleGood(currentShape[currentIndex])
+   var currentShape = dataShapes[currentIndex]
+   handleGood(currentShape.color, currentShape.shape, currentShape.repeat)
   }
 
   function badDisplay() {
