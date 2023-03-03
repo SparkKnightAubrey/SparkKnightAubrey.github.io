@@ -69,7 +69,7 @@ function handleGood(color, shape, repeat){
 }
   // TODO 5-a: add a function that handles the bad display type
 function handleBad(data, repeat){
-  repeat + 1
+  repeat = repeat + 1
   setBackgroundWithMixed(data, repeat)
   animationDetails.displayType = 3
 }
@@ -91,7 +91,8 @@ function handleBad(data, repeat){
     // TODO 5-b: call your handleBad function
     function badDisplay() {
       var currentShape = dataShapes[currentIndex]
-      handleBad()
+      var repeat = currentShape.repeat
+      handleBad(currentShape, repeat)
   }
 
   /////////////////////////////////////////////////
