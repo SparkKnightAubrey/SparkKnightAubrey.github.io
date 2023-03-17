@@ -6,7 +6,8 @@
     c) Does the game have an end? If so, what are the conditions for when it ends?
         - The game will end once one player reaches 20 points
     d) What ifs will there be?
-        - if the ball goes into the right players side, the left player will get a point. if the ball hits a players wall, the speed will go inverse
+        - if the ball goes into the right players side, the left player will get a point. if the ball hits a players paddle, the speed will go inverse.
+          if the ball hits a wall it will bounce off of the wall into the other direction. If a player gets 20 points, the game ends
 2) Visual Game Components:
     a) What are the visual game components? For example, in Bouncing Box, the game components were the board and the box.
         - Which will be static? (the board)
@@ -15,11 +16,15 @@
         - Which will be animated? (the box)
             > the walls controlled by the player and the ball
     b) What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
-        - positionX, positionY, speedX, speedY, and points
+        - positionX(3), positionY(3), speedX, speedY, and points(2)
 3) Events / Logic
     a) What events will occur in this game? (timer events, keyboard events, clicking events?)
         - there will be mouse clicking events, and keyboard events
     b) How do those events affect the data of the program?
         - the mouse clicking events will help start the game and the keyboard events will move the walls that players will use
     c) For each "event", write out the high-level logic of what will happen. It is better (and tricky) to be as specific as you can while remaining high-level!
-        - 
+        - For the player on the left side, if you press the "w" key the left paddle will go up until you reach the top of the box or until you let go of the key.
+          The left paddle will go down when you press the "s" key and stop when it reaches the bottom of the box or when you let go of the key
+          The right paddle will go up when you press the "up" key and stop when it reaches the top of the box or when you let go of the key
+          The right paddle will go down when you press the "down" key and stop when you reach the bottom of the box or when you let go of the key
+          To start the game, move mouse to the center button that says "START"
