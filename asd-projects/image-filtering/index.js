@@ -20,7 +20,9 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-
+applyFilter(reddify)
+applyFilter(decreaseBlue)
+applyFilter(increaseGreenByBlue)
   
 
   // do not change the below line of code
@@ -32,18 +34,39 @@ function applyAndRender() {
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2 & 4: Create the applyFilter function here
-
+function applyFilter(filterFunction){
+  for (var i = 0; i < image.length; i++){
+    var row = image[i]
+    for (var e = 0; e < row.length; e++){
+      var rgbString = row[e]
+      var rgbNumbers = rgbStringToArray(rgbString)
+      filterFunction(rgbNumbers)
+      rgbString = rgbArrayToString(rgbNumbers)
+      row[e] = rgbString
+    }
+  }
+}
 
 // TODO 7: Create the applyFilterNoBackground function
 
 
 // TODO 5: Create the keepInBounds function
-
+function keepInBounds(colorNumber){
+  Math.min(colorNumber, 255)
+  Math.max(colorNumber, 0)
+}
 
 // TODO 3: Create reddify function
-
+function reddify(luigiArray){
+  luigiArray[RED] = 200
+}
 
 // TODO 6: Create more filter functions
+function decreaseBlue(bluebo){
+  bluebo[BLUE] = keepInBounds(bluebo[BLUE] - 50)
+}
 
-
+function increaseGreenByBlue(greenlo){
+  greenlo[GREEN] = keepInBounds(greenlo[BLUE] + greenlo[GREEN])
+}
 // CHALLENGE code goes below here

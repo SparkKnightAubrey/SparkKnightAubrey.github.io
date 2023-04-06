@@ -1,21 +1,66 @@
 
 body {
-  background-color: darkgreen;
+  background-image: linear-gradient(to right, #73d3ff, #ff73fa, #ffffff, #ff73fa, #73d3ff)
 }
 
 #board {
-  width: 440px;
-  height: 440px;
+  width: 770px;
+  height: 770px;
   border: 1px solid white;
   background-color: black;
   position: relative;
+  left: 500px;
+  top: 105px;
 }
 
-#gameItem {
+#leftPaddle {
+  background-color: rgb(128, 0, 0);
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  left: 100px;  /* Uncomment if you want to set a "starting" position */
+  top: 100px;   /* Uncomment if you want to set a "starting" position */
+}
+#rightPaddle {
+  background-color: rgb(128, 0, 0);
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 600px;  /* Uncomment if you want to set a "starting" position */
+  top: 100px;   /* Uncomment if you want to set a "starting" position */
+}
+#ball {
   background-color: teal;
   width: 50px;
   height: 50px;
   position: absolute;
-/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+  left: 500px;  /* Uncomment if you want to set a "starting" position */
+  top: 100px;   /* Uncomment if you want to set a "starting" position */
+}
+#player1Score {
+  background-color: rgb(30, 128, 0);
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 35px;  /* Uncomment if you want to set a "starting" position */
+  top: 35px;   /* Uncomment if you want to set a "starting" position */
+}
+#player2Score {
+  background-color: rgb(81, 0, 128);
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 685px;  /* Uncomment if you want to set a "starting" position */
+  top: 35px;   /* Uncomment if you want to set a "starting" position */
+}
+
+#text2 {
+  left: 35px;
+}
+
+h2 {
+  color: pink;
+  position: relative;
+  left: 5px;
+  top: -20px;
 }
