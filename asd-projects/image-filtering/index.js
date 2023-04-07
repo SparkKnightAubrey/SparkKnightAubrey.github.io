@@ -21,8 +21,8 @@ function resetAndRender() {
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
 applyFilter(reddify)
-applyFilter(decreaseBlue)
-applyFilter(increaseGreenByBlue)
+applyFilterNoBackground(decreaseBlue)
+applyFilterNoBackground(increaseGreenByBlue)
   
 
   // do not change the below line of code
@@ -48,12 +48,27 @@ function applyFilter(filterFunction){
 }
 
 // TODO 7: Create the applyFilterNoBackground function
-
+function applyFilterNoBackground(filterFunction){
+  var backgroundColor = image[0][0]
+  for (var i = 0; i < image.length; i++){
+    var row = image[i]
+    for (var e = 0; e < row.length; e++){
+      var rgbString = row[e]
+      if (backgroundColor !== rgbString){
+      var rgbNumbers = rgbStringToArray(rgbString)
+      filterFunction(rgbNumbers)
+      rgbString = rgbArrayToString(rgbNumbers)
+      row[e] = rgbString
+      }
+    }
+  }
+}
 
 // TODO 5: Create the keepInBounds function
 function keepInBounds(colorNumber){
-  Math.min(colorNumber, 255)
-  Math.max(colorNumber, 0)
+  maxNumber = Math.min(colorNumber, 255)
+  minNumber = Math.max(maxNumber, 0)
+  return minNumber
 }
 
 // TODO 3: Create reddify function
