@@ -12,8 +12,22 @@ function runProgram(){
   const FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
-
-
+  function factory(id){
+    var object = {};
+    object.id = id;
+    object.x = parseFloat($(id).css("left"))
+    object.y = parseFloat($(id).css("top"))
+    object.width = $(id).width()
+    object.height = $(id).height()
+    object.speedX = 0
+    object.speedY = 0
+    return object;
+  }
+  var ball = factory("#ball")
+  var player1 = factory("#leftPaddle")
+  var player2 = factory("#rightPaddle")
+  var player1Score = factory("#player1Score")
+  var player2Score = factory("#player2Score")
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
@@ -30,12 +44,30 @@ function runProgram(){
     
 
   }
-  
+  /*
+  Handle key events
+  */
+ var KEYCODE = {
+  KEY_W: 87,
+  KEY_S: 83,
+  KEY_UP: 38,
+  KEY_DOWN: 40,
+ }
+function handleKeyDown() {
+  var keycode = KEYCODE.which;
+  console.log(keycode)
+
+  if (keycode === KEYCODE.KEY_W) {
+    console.log('W pressed')
+   }
+}
+
+
   /* 
   Called in response to events.
   */
   function handleEvent(event) {
-
+    $(document).on("keydown", handleKeyDown)
   }
 
   ////////////////////////////////////////////////////////////////////////////////

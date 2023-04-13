@@ -14,48 +14,57 @@ body {
 }
 
 #leftPaddle {
-  background-color: rgb(128, 0, 0);
+  background-color: rgb(206, 98, 216);
   width: 15px;
-  height: 100px;
+  height: 150px;
   position: absolute;
   left: 100px;  /* Uncomment if you want to set a "starting" position */
   top: 100px;   /* Uncomment if you want to set a "starting" position */
 }
 #rightPaddle {
-  background-color: rgb(128, 0, 0);
-  width: 50px;
-  height: 50px;
+  background-color: rgb(144, 2, 226);;
+  width: 15px;
+  height: 150px;
   position: absolute;
-  left: 600px;  /* Uncomment if you want to set a "starting" position */
+  left: 650px;  /* Uncomment if you want to set a "starting" position */
   top: 100px;   /* Uncomment if you want to set a "starting" position */
 }
 #ball {
-  background-color: teal;
+  background-color: rgb(0, 255, 255);
   width: 50px;
   height: 50px;
   position: absolute;
+  border-radius: 50px;
   left: 500px;  /* Uncomment if you want to set a "starting" position */
   top: 100px;   /* Uncomment if you want to set a "starting" position */
 }
 #player1Score {
-  background-color: rgb(30, 128, 0);
   width: 50px;
   height: 50px;
   position: absolute;
-  left: 35px;  /* Uncomment if you want to set a "starting" position */
-  top: 35px;   /* Uncomment if you want to set a "starting" position */
+  left: 25px;  /* Uncomment if you want to set a "starting" position */
+  top: 25px;   /* Uncomment if you want to set a "starting" position */
 }
 #player2Score {
-  background-color: rgb(81, 0, 128);
   width: 50px;
   height: 50px;
   position: absolute;
   left: 685px;  /* Uncomment if you want to set a "starting" position */
-  top: 35px;   /* Uncomment if you want to set a "starting" position */
+  top: 25px;   /* Uncomment if you want to set a "starting" position */
+}
+#cheer {
+  position: absolute;
+  left: 800px;
+  top: 35px;
+}
+#text1 {
+  font-size: 35px;
+  left: 10px;
 }
 
 #text2 {
-  left: 35px;
+  left: 32px;
+  font-size: 35px;
 }
 
 h2 {
