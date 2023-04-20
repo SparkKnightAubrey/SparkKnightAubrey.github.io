@@ -10,7 +10,12 @@ function runProgram(){
   // Constant Variables
   const FRAME_RATE = 60;
   const FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  
+  var KEYCODE = {
+    KEY_W: 87,
+    KEY_S: 83,
+    KEY_UP: 38,
+    KEY_DOWN: 40,
+   }
   // Game Item Objects
   function factory(id){
     var object = {};
@@ -31,6 +36,7 @@ function runProgram(){
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
+  $(document).on("keydown", handleKeyDown);
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -47,19 +53,23 @@ function runProgram(){
   /*
   Handle key events
   */
- var KEYCODE = {
-  KEY_W: 87,
-  KEY_S: 83,
-  KEY_UP: 38,
-  KEY_DOWN: 40,
- }
-function handleKeyDown() {
-  var keycode = KEYCODE.which;
+
+function handleKeyDown(event) {
+  var keycode = event.which;
   console.log(keycode)
 
   if (keycode === KEYCODE.KEY_W) {
     console.log('W pressed')
    }
+  else if (keycode === KEYCODE.KEY_S) {
+    console.log('S pressed')
+  } 
+  else if (keycode === KEYCODE.KEY_UP){
+    console.log("Up pressed")
+  }
+  else if (keycode === KEYCODE.KEY_DOWN){
+    console.log("Down pressed")
+  }
 }
 
 
@@ -67,7 +77,7 @@ function handleKeyDown() {
   Called in response to events.
   */
   function handleEvent(event) {
-    $(document).on("keydown", handleKeyDown)
+ 
   }
 
   ////////////////////////////////////////////////////////////////////////////////
