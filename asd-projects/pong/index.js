@@ -37,6 +37,7 @@ function runProgram(){
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
   $(document).on("keydown", handleKeyDown);
+  startBall()
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -84,6 +85,13 @@ function handleKeyDown(event) {
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
+  // Gets the ball moving
+  function startBall(){
+    ball.x = 360;
+    ball.y = 360;
+    ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedY = (Math.random() * 2) * (Math.random() > 0.5 ? -1 : 1)
+  }
   
   function endGame() {
     // stop the interval timer

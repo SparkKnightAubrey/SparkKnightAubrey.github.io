@@ -35,8 +35,8 @@ body {
   height: 50px;
   position: absolute;
   border-radius: 50px;
-  left: 500px;  /* Uncomment if you want to set a "starting" position */
-  top: 100px;   /* Uncomment if you want to set a "starting" position */
+  left: 360px;  /* Uncomment if you want to set a "starting" position */
+  top: 360px;   /* Uncomment if you want to set a "starting" position */
 }
 #player1Score {
   width: 50px;

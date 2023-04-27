@@ -14,7 +14,7 @@
             > The points counter
 
         - Which will be animated? (the box)
-            > the walls controlled by the player and the ball
+            > the paddles controlled by the player and the ball
     b) What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
         - positionX(3), positionY(3), speedX, speedY, and points(2)
 3) Events / Logic
