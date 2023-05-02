@@ -16,6 +16,8 @@ function runProgram(){
     KEY_UP: 38,
     KEY_DOWN: 40,
    }
+   const BOARD_WIDTH = $("#board").width()
+   const BOARD_HEIGHT = $("#board").height()
   // Game Item Objects
   function factory(id){
     var object = {};
@@ -48,7 +50,8 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
+    repositionGameItem(ball)
+    redrawGameItem(ball)
 
   }
   /*
@@ -72,7 +75,41 @@ function handleKeyDown(event) {
     console.log("Down pressed")
   }
 }
+// Detects wall collisions
+  function wallCollision(object1, object2){
+    object1.left = object1.x
+    object1.right = object1.x + object1.width
+    object1.top = object1.y
+    object1.bottom = object1.y + object1.height
 
+    object2.left = object2.x
+    object2.right = object2.x + object2.width
+    object2.top = object2.y
+    object2.bottom = object2.y + object2.height
+     if (object1.left > object2.right &&
+         object1.bottom > object2.top &&
+         object1.right < object2.left &&
+         object1.top < object2.bottom) {
+          return true
+         }
+    else {
+      return false
+    }
+  }
+  function ballDetection(){
+    if (ball.y > BOARD_HEIGHT){
+        speedY = -speedY
+    }
+    if (ball.y < 0){
+      speedY = speedY * -1
+    }
+    if (ball.x > BOARD_WIDTH){
+      speedX = -speedX
+    }
+    if (ball.x < 0){
+      speedX = speedX * -1
+    }
+  }
 
   /* 
   Called in response to events.
@@ -92,7 +129,16 @@ function handleKeyDown(event) {
     ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
     ball.speedY = (Math.random() * 2) * (Math.random() > 0.5 ? -1 : 1)
   }
-  
+
+  function repositionGameItem(object) {
+    object.x += object.speedX
+    object.y += object.speedY
+  }
+  function redrawGameItem(object) {
+    $(object.id).css("left", object.x)
+    $(object.id).css("top", object.y)
+  }
+
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
