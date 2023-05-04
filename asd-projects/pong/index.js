@@ -34,7 +34,9 @@ function runProgram(){
   var player1 = factory("#leftPaddle")
   var player2 = factory("#rightPaddle")
   var player1Score = factory("#player1Score")
+  player1Score.score = 0
   var player2Score = factory("#player2Score")
+  player2Score.score = 0
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
@@ -104,10 +106,12 @@ function handleKeyDown(event) {
       speedY = speedY * -1
     }
     if (ball.x > BOARD_WIDTH){
-      speedX = -speedX
+      startBall()
+      $("#player1Score").text(updatedScore)
     }
     if (ball.x < 0){
-      speedX = speedX * -1
+      startBall()
+      $("#player2Score").text(updatedScore)
     }
   }
 
