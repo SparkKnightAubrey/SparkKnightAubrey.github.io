@@ -41,7 +41,7 @@ function runProgram(){
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
   $(document).on("keydown", handleKeyDown);
-  startBall()
+  startBall();
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -54,7 +54,17 @@ function runProgram(){
   function newFrame() {
     repositionGameItem(ball)
     redrawGameItem(ball)
-
+    repositionGameItem(player1)
+    redrawGameItem(player1)
+    repositionGameItem(player2)
+    redrawGameItem(player2)
+    ballDetection()
+    if (wallCollision(ball, player1)){
+      ball.speedX = ball.speedX * -1
+    }
+    if (wallCollision(ball, player2)){
+      ball.speedX = ball.speedX * -1
+    }
   }
   /*
   Handle key events
@@ -107,14 +117,16 @@ function handleKeyDown(event) {
     }
     if (ball.x > BOARD_WIDTH){
       startBall()
-      $("#player1Score").text(updatedScore)
+      player1Score.score = player1Score.score + 1
+      $("#text1").text(player1Score.score)
     }
     if (ball.x < 0){
       startBall()
-      $("#player2Score").text(updatedScore)
+      player2Score.score = player2Score.score + 1
+      $("#text2").text(player2Score.score)
     }
   }
-
+  
   /* 
   Called in response to events.
   */
