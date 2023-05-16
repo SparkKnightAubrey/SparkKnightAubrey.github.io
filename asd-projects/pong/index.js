@@ -37,6 +37,7 @@ function runProgram(){
   player1Score.score = 0
   var player2Score = factory("#player2Score")
   player2Score.score = 0
+  var button = factory("#button")
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
@@ -115,14 +116,14 @@ function handleKeyUp(event){
   }
 }
 // detects for winner
-function handleGameEnding(){
-  if (player1Score.score === 11){
-    endGame()
-  }
-  else if (player2.score === 11){
-    endGame()
-  }
-}
+// function handleGameEnding(){
+//   if (player1Score.score === 11){
+//     endGame()
+//   }
+//   else if (player2.score === 11){
+//     endGame()
+//   }
+// }
 // Detects wall collisions
   function wallCollision(object1, object2){
     object1.left = object1.x
@@ -155,11 +156,17 @@ function handleGameEnding(){
       startBall()
       player1Score.score = player1Score.score + 1
       $("#text1").text(player1Score.score)
+      if (player1Score.score === 11){
+        endGame()
+      }
     }
     if (ball.x < 0){
       startBall()
       player2Score.score = player2Score.score + 1
       $("#text2").text(player2Score.score)
+      if (player2Score.score === 11){
+        endGame()
+      }
     }
   }
   

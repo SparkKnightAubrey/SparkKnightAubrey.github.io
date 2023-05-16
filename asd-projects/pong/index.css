@@ -73,3 +73,9 @@ h2 {
   left: 5px;
   top: -20px;
 }
+
+#button{
+  color:#ff73fa;
+  background: #ffffff;
+  width: 80px;
+}
