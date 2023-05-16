@@ -73,8 +73,21 @@ function runProgram(){
     if (wallCollision(ball, player2)){
       ball.speedX = ball.speedX * -1
     }
-    if (wallCollision(player1, BOARD_HEIGHT)){
+    if (player1.y <= 0){
       player1.speedY = 0
+      player1.y = 0
+    }
+    if (player1.y + player1.height >= 770){
+      player1.speedY = 0
+      player1.y = 600
+    }
+    if (player2.y <= 0){
+      player2.speedY = 0
+      player2.y = 0
+    }
+    if (player2.y + player2.height >= 770){
+      player2.speedY = 0
+      player2.y = 600
     }
   }
   /*
