@@ -41,6 +41,7 @@ function runProgram(){
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
   $(document).on("keydown", handleKeyDown);
+  $(document).on('keyup', handleKeyUp)
   startBall();
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -75,16 +76,51 @@ function handleKeyDown(event) {
   console.log(keycode)
 
   if (keycode === KEYCODE.KEY_W) {
+    player1.speedY = -5
     console.log('W pressed')
    }
   else if (keycode === KEYCODE.KEY_S) {
+    player1.speedY = 5
     console.log('S pressed')
   } 
   else if (keycode === KEYCODE.KEY_UP){
+    player2.speedY = -5
     console.log("Up pressed")
   }
   else if (keycode === KEYCODE.KEY_DOWN){
+    player2.speedY = 5
     console.log("Down pressed")
+  }
+}
+// Key up function
+function handleKeyUp(event){
+  var keycode = event.which;
+  console.log(keycode)
+
+  if (keycode === KEYCODE.KEY_W) {
+    player1.speedY = 0
+    console.log('W let go')
+   }
+  else if (keycode === KEYCODE.KEY_S) {
+    player1.speedY = 0
+    console.log('S let go')
+  } 
+  else if (keycode === KEYCODE.KEY_UP){
+    player2.speedY = 0
+    console.log("Up let go")
+  }
+  else if (keycode === KEYCODE.KEY_DOWN){
+    player2.speedY = 0
+    console.log("Down let go")
+  }
+}
+// detects for winner
+function handleGameEnding(){
+  if (player1Score.score === 11){
+    endGame()
+  }
+  else if (player2.score === 11){
+    endGame()
   }
 }
 // Detects wall collisions
@@ -98,9 +134,9 @@ function handleKeyDown(event) {
     object2.right = object2.x + object2.width
     object2.top = object2.y
     object2.bottom = object2.y + object2.height
-     if (object1.left > object2.right &&
+     if (object1.left < object2.right &&
          object1.bottom > object2.top &&
-         object1.right < object2.left &&
+         object1.right > object2.left &&
          object1.top < object2.bottom) {
           return true
          }
@@ -110,10 +146,10 @@ function handleKeyDown(event) {
   }
   function ballDetection(){
     if (ball.y > BOARD_HEIGHT){
-        speedY = -speedY
+        ball.speedY = -ball.speedY
     }
     if (ball.y < 0){
-      speedY = speedY * -1
+      ball.speedY = ball.speedY * -1
     }
     if (ball.x > BOARD_WIDTH){
       startBall()
