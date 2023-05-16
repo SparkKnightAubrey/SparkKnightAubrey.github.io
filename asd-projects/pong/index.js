@@ -38,8 +38,9 @@ function runProgram(){
   var player2Score = factory("#player2Score")
   player2Score.score = 0
   var button = factory("#button")
+  var cheer = factory("#cheer")
   //calling handleGameStart
-  $(button).on("click", handleGameStart)
+  $("#button").on("click", handleGameStart)
   // one-time setup
   let interval 
   function handleGameStart(){ 
@@ -48,6 +49,7 @@ function runProgram(){
   $(document).on("keydown", handleKeyDown);
   $(document).on('keyup', handleKeyUp)
   startBall();
+  $("#button").hide()
   }
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -70,6 +72,9 @@ function runProgram(){
     }
     if (wallCollision(ball, player2)){
       ball.speedX = ball.speedX * -1
+    }
+    if (wallCollision(player1, BOARD_HEIGHT)){
+      player1.speedY = 0
     }
   }
   /*
