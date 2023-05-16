@@ -38,13 +38,17 @@ function runProgram(){
   var player2Score = factory("#player2Score")
   player2Score.score = 0
   var button = factory("#button")
+  //calling handleGameStart
+  $(button).on("click", handleGameStart)
   // one-time setup
-  let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
+  let interval 
+  function handleGameStart(){ 
+  interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);
+  $(document).on('eventType', handleEvent);                          
   $(document).on("keydown", handleKeyDown);
   $(document).on('keyup', handleKeyUp)
   startBall();
-
+  }
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
